@@ -26,7 +26,7 @@ function KeyBoardButtons(prop) {
 
     // const [color, setColor] = useState(styles.black);
     // const [type, setType] = useState("");
-    // const [text, setText] = useState([{letter:"", style:color}]);
+     const [text, setText] = useState([{letter:"", style:color}]);
     // const [size, setSize] = useState('20px');
     //const [text, setText] = useState(letter:"", typeStyle);
     // const [style, setStyle] = useState();
@@ -42,6 +42,9 @@ function KeyBoardButtons(prop) {
     //     //const [text, setText] = 
     //     setText([...text,{letter:newLetter, style:color}]);
     // }
+    const handleClick = (newLetter) => {
+        setText(prevText => [...prevText, { letter: newLetter, style: color }]);
+      };
 
     // const changeLanguage = () => {
     //     if (ChangeKeyBoard == 'עברית') {
@@ -62,9 +65,10 @@ function KeyBoardButtons(prop) {
     //     setKeyBoard(simbolsKeyBoard);
     // }
 
-    // const deleteChar = () => {
-    //     setText(slice(0, -1));
-    // }
+    
+    const deleteChar = () => {
+        setText(prevText => prevText.slice(0, -1));
+      };
 
     // const changeColor = (color) => {
     //     switch (color) {
@@ -95,10 +99,13 @@ function KeyBoardButtons(prop) {
     //prompt.
     return (
         <div>
-            <p>!!!!!המקלדת המהממת</p>
-            {prop.keyBoard.map((letter, index) => {
-                return <button key={index} onClick={() => handleClick(letter)}>{letter}</button>
-            })}
+             <p>!!!!!המקלדת המהממת</p>
+{/* {prop.keyBoard.map((letter, index) => {
+    return <button key={index} onClick={() => handleClick(letter)}>{letter}</button>
+})} */}
+            {prop.keyBoard.map((letter, index) => (
+            <button key={index} onClick={() => handleClick(letter)}>{letter}</button>))}
+
             <button onClick={() => handleClick(" ")}>______</button>
             <button onClick={() => prop.changeLanguage()}>{ChangeKeyBoard}</button>
             {/* <button style={styles.red} onClick={() => changeColor('red')}>red</button>
