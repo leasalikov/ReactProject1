@@ -4,16 +4,18 @@ import React, { useState } from "react";
 import TypesOfKeyBoards from './TypesOfKeyBoards'
 import OutputText from "./OutputText";
 // import Style from './Style'
+import SpecialKeys from './SpecialKeys'
 
 function KeyBoardButtons(prop) {
     
     const [KeyBoard, setKeyBoard] = useState('EnglishAlphabet');
-    const [text, setText] = useState([{ letter: "",color: prop.color, size: prop.size}]);
+    const [text, setText] = useState([{ letter: "", color: prop.color, size: prop.size}]);
 
     const EnglishAlphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.', ',', '?', '!'];
     const HebrewAlphabet = ['ק', 'ר', 'א', 'ט', 'ו', 'ן', 'ם', 'פ', 'ש', 'ד', 'ג', 'כ', 'ע', 'י', 'ח', 'ל', 'ך', 'ף', 'ז', 'ס', 'ב', 'ה', 'נ', 'מ', 'צ', 'ת', 'ץ', '.', ',', '?', '!'];
     const EmogyKeyBoard = ['😂', '❤️', '🤣', '👍', '😭', '🙏', '😘', '🥰', '😍', '😊', '😁', '💕', '🥺', '😅', '🙄', '😆', '🤗', '😉', '🤔', '👏', '🙂', '😳', '🥳', '😎', '😔', '😏', '😢', '👉', '💗'];
     const simbolsKeyBoard = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', ',', '?', '!', ':', '(', ')', '@', '#', '$', '%', '^', '&', '*', '-', '=', '+', '[', ']']
+    const UpperCaseAlphabet = EnglishAlphabet.map((letter) => (letter.toUpperCase()));
     const getKeyboard = (keyboard) => {
         switch (keyboard) {
             case 'EnglishAlphabet':
@@ -24,6 +26,8 @@ function KeyBoardButtons(prop) {
                 return EmogyKeyBoard
             case 'simbolsKeyBoard':
                 return simbolsKeyBoard
+            case 'UpperCaseAlphabet':
+                return UpperCaseAlphabet
             default:
                 break;
         }
@@ -51,7 +55,8 @@ function KeyBoardButtons(prop) {
             <button onClick={() => handleClick(" ")}>______</button>
             <button onClick={() => deleteChar()}>del</button>
             <button onClick={() => enterButton()}>→</button>
-            <TypesOfKeyBoards setKeyBoard={setKeyBoard} />
+            <TypesOfKeyBoards setKeyBoard={setKeyBoard} keyBoard={KeyBoard}/>
+            <SpecialKeys text={text} setText={setText}/>
         </div>
     );
 }

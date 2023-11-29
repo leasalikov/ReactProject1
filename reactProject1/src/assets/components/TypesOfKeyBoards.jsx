@@ -1,36 +1,52 @@
- import React, { useState } from "react";
- import KeyBoardButtons from './KeyBoardButtons';
+import React, { useState } from "react";
+import KeyBoardButtons from './KeyBoardButtons';
 
- function TypesOfKeyBoards(prop){
+function TypesOfKeyBoards(prop){
 
-    const [ChangeKeyBoard, setChangeKeyBoard] = useState('עברית');
+   const [ChangeKeyBoard, setChangeKeyBoard] = useState('עברית');
 
-    const changeLanguage = () => {
-        if (ChangeKeyBoard == 'עברית') {
-            prop.setKeyBoard('HebrewAlphabet');
-            setChangeKeyBoard('English');
-        }
-        else {
-            prop.setKeyBoard('EnglishAlphabet');
-            setChangeKeyBoard('עברית');
-        }
-    }
+   const changeLanguage = () => {
+       if (ChangeKeyBoard == 'עברית') {
+           prop.setKeyBoard('HebrewAlphabet');
+           setChangeKeyBoard('English');
+       }
+       else {
+           prop.setKeyBoard('EnglishAlphabet');
+           setChangeKeyBoard('עברית');
+       }
+   }
 
-    const Emoji = () => {
-        prop.setKeyBoard('EmogyKeyBoard');
-    }
+   // const Emoji = () => {
+   //     prop.setKeyBoard('EmogyKeyBoard');
+   // }
 
-    const Simbol = () => {
-        prop.setKeyBoard('simbolsKeyBoard');
-    }
+   // const Simbol = () => {
+   //     prop.setKeyBoard('simbolsKeyBoard');
+   // }
 
-    return(
-        <>
-            <button onClick={() => changeLanguage()}>{ChangeKeyBoard}</button>
-            <button onClick={() => Emoji()}>😊</button>
-            <button onClick={() => Simbol()}>simbols</button>
-        </>
-    );
-    
- }
- export default TypesOfKeyBoards;
+   const changeToSpecialKeyBoard=(keyBoardKind)=>{
+       switch (keyBoardKind) {
+           case 'Emoji':
+               prop.setKeyBoard('EmogyKeyBoard');
+               break;
+           case 'Simbol':
+               prop.setKeyBoard('simbolsKeyBoard');
+               break;
+           case 'upper':
+               (prop.keyBoard=='UpperCaseAlphabet')?prop.setKeyBoard('EnglishAlphabet'):prop.setKeyBoard('UpperCaseAlphabet');
+           default:
+               break;
+       }
+   }
+
+   return(
+       <>
+           <button onClick={() => changeLanguage()}>{ChangeKeyBoard}</button>
+           <button onClick={() => changeToSpecialKeyBoard('Emoji')}>😊</button>
+           <button onClick={() => changeToSpecialKeyBoard('Simbol')}>simbols</button>
+           <button onClick={() => changeToSpecialKeyBoard('upper')}>UPPER</button>
+       </>
+   );
+   
+}
+export default TypesOfKeyBoards;
