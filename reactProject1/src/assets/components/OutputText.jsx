@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 
+const OutputText = (prop) =>{
 
-const OutputText = () =>{
-
-    const [text, setText] = useState([{letter:"", style:color}]);
-
-
-
-    const handleClick = (newLetter) => {
-        //const [text, setText] = 
-        setText([...text,{letter:newLetter, style:color}]);
-    }
-
+    return(
+        <>
+        {prop.text.map((char, i) =>
+            <span key={i} style={{...char.color, ...char.size}}>{char.letter}</span>
+        )}
+        </>
+    )
 }
 export default OutputText;

@@ -1,38 +1,36 @@
-import React, { useState } from "react";
-import KeyBoardButtons from './KeyBoardButtons';
+ import React, { useState } from "react";
+ import KeyBoardButtons from './KeyBoardButtons';
 
-function TypesOfKeyBoards(){
+ function TypesOfKeyBoards(prop){
 
-    const EnglishAlphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.', ',', '?', '!'];
-    const HebrewAlphabet = ['ק', 'ר', 'א', 'ט', 'ו', 'ן', 'ם', 'פ', 'ש', 'ד', 'ג', 'כ', 'ע', 'י', 'ח', 'ל', 'ך', 'ף', 'ז', 'ס', 'ב', 'ה', 'נ', 'מ', 'צ', 'ת', 'ץ', '.', ',', '?', '!'];
-    const EmogyKeyBoard = ['😂', '❤️', '🤣', '👍', '😭', '🙏', '😘', '🥰', '😍', '😊', '😁', '💕', '🥺', '😅', '🙄', '😆', '🤗', '😉', '🤔', '👏', '🙂', '😳', '🥳', '😎', '😔', '😏', '😢', '👉', '💗'];
-    const simbolsKeyBoard = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', ',', '?', '!', ':', '(', ')', '@', '#', '$', '%', '^', '&', '*', '-', '=', '+', '[', ']']
-    const [KeyBoard, setKeyBoard] = useState(EnglishAlphabet);
+    const [ChangeKeyBoard, setChangeKeyBoard] = useState('עברית');
 
     const changeLanguage = () => {
         if (ChangeKeyBoard == 'עברית') {
-            setKeyBoard(HebrewAlphabet);
+            prop.setKeyBoard('HebrewAlphabet');
             setChangeKeyBoard('English');
         }
         else {
-            setKeyBoard(EnglishAlphabet);
+            prop.setKeyBoard('EnglishAlphabet');
             setChangeKeyBoard('עברית');
         }
     }
 
     const Emoji = () => {
-        setKeyBoard(EmogyKeyBoard);
+        prop.setKeyBoard('EmogyKeyBoard');
     }
 
     const Simbol = () => {
-        setKeyBoard(simbolsKeyBoard);
+        prop.setKeyBoard('simbolsKeyBoard');
     }
 
     return(
         <>
-            <KeyBoardButtons keyBoard={KeyBoard.valueOf()} changeLanguage={changeLanguage} Emoji={Emoji} Simbol={Simbol} />
+            <button onClick={() => changeLanguage()}>{ChangeKeyBoard}</button>
+            <button onClick={() => Emoji()}>😊</button>
+            <button onClick={() => Simbol()}>simbols</button>
         </>
     );
     
-}
-export default TypesOfKeyBoards;
+ }
+ export default TypesOfKeyBoards;
