@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import KeyBoardButtons from './KeyBoardButtons'
-function Style(){
+function Style(prop){
 
     const styles = {
         red: { color: 'red' },
@@ -12,40 +12,44 @@ function Style(){
         small: { fontSize: '10px' }
     }
 
-    const [color, setColor] = useState(styles.black);
-    const [size, setSize] = useState(styles.defoultSize);
+    // const [color, setColor] = useState(styles.black);
+    // const [size, setSize] = useState(styles.defoultSize);
     
     const changeColor = (mycolor) => {
+        console.log(prop.color);
+        prop.setUndo(prevUndo => [...prevUndo, prop.color]);
+        // prop.setUndo(prevUndo => [...prevUndo, {func: changeColor, arg: prop.color}]);
         switch (mycolor) {
             case 'red':
-                setColor(styles.red)
+                prop.setColor(styles.red);
                 break;
             case 'green':
-                setColor(styles.green)
+                prop.setColor(styles.green)
                 break;
             case 'blue':
-                setColor(styles.blue)
+                prop.setColor(styles.blue)
                 break;
             case 'black':
-                setColor(styles.black)
+                prop.setColor(styles.black)
                 break;    
         }
     }
     
     const changeSize= (mysize) => {
+        // prop.setUndo(prevUndo => [...prevUndo, {func: changeSize, arg: prop.size}]);
         switch(mysize){
             case 'big':
-                setSize(styles.big)
+                prop.setSize(styles.big)
                 break;
             case 'small':
-                setSize(styles.small)
+                prop.setSize(styles.small)
                 break;
         }
     }
-   
+
     return(
         <div>
-        <KeyBoardButtons color={color} size={size} />
+        {/* <KeyBoardButtons color={color} size={size} /> */}
         <button style={styles.red} onClick={() => changeColor('red')}>red</button>
         <button style={styles.green} onClick={() => changeColor('green')}>green</button>
         <button style={styles.blue} onClick={() => changeColor('blue')}>blue</button>
