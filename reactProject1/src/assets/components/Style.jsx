@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import KeyBoardButtons from './KeyBoardButtons'
-function Style(prop){
+function Style(prop) {
 
     const styles = {
         red: { color: 'red' },
@@ -14,10 +14,10 @@ function Style(prop){
 
     // const [color, setColor] = useState(styles.black);
     // const [size, setSize] = useState(styles.defoultSize);
-    
+
     const changeColor = (mycolor) => {
-        console.log(prop.color);
-        prop.setUndo(prevUndo => [...prevUndo, prop.color]);
+        prop.setUndo(prevUndo => [...prevUndo, () => { prop.setColor(prop.color) }]);
+        // prop.setUndo(prevUndo => [...prevUndo, prop.color]);
         // prop.setUndo(prevUndo => [...prevUndo, {func: changeColor, arg: prop.color}]);
         switch (mycolor) {
             case 'red':
@@ -31,13 +31,14 @@ function Style(prop){
                 break;
             case 'black':
                 prop.setColor(styles.black)
-                break;    
+                break;
         }
     }
-    
-    const changeSize= (mysize) => {
+
+    const changeSize = (mysize) => {
+        prop.setUndo(prevUndo => [...prevUndo, () => { prop.setSize(prop.size) }]);
         // prop.setUndo(prevUndo => [...prevUndo, {func: changeSize, arg: prop.size}]);
-        switch(mysize){
+        switch (mysize) {
             case 'big':
                 prop.setSize(styles.big)
                 break;
@@ -47,17 +48,24 @@ function Style(prop){
         }
     }
 
-    return(
+    return (
         <div>
-        {/* <KeyBoardButtons color={color} size={size} /> */}
-        <button style={styles.red} onClick={() => changeColor('red')}>red</button>
-        <button style={styles.green} onClick={() => changeColor('green')}>green</button>
-        <button style={styles.blue} onClick={() => changeColor('blue')}>blue</button>
-        <button style={styles.black} onClick={() => changeColor('black')}>black</button>
-        <button onClick={() => changeSize('big')}>big</button>
-        <button onClick={() => changeSize('small')}>small</button>
+            {/* <KeyBoardButtons color={color} size={size} /> */}
+            <button style={styles.red} onClick={() => changeColor('red')}>red</button>
+            <button style={styles.green} onClick={() => changeColor('green')}>green</button>
+            <button style={styles.blue} onClick={() => changeColor('blue')}>blue</button>
+            <button style={styles.black} onClick={() => changeColor('black')}>black</button>
+            <button onClick={() => changeSize('big')}>big</button>
+            <button onClick={() => changeSize('small')}>small</button>
+            {/* <label for="dog-names">Choose a dog name:</label>  */}
+            <select name="dog-names" id="dog-names"> 
+                <option value=""></option> 
+                <option value=""></option> 
+                <option value=""></option> 
+                <option value=""></option> 
+            </select>
         </div>
     )
- }
+}
 
- export default Style; 
+export default Style; 
