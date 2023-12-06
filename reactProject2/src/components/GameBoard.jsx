@@ -2,13 +2,14 @@ import { useState } from "react";
 import LogIn from "./LogIn";
 
 function GameBoard(props) {
-    const { player } = props;
+    const { player, keyChange} = props;
 
     return (
-        <>
-            <p>player: {player.name}</p>
+        <div key={keyChange}>
+            <p>Player: {player.name}</p>
             <p>number: {player.number}</p>
-        </>
+            <p>Steps: {player.steps}</p>
+        </div>
     )
 }
 

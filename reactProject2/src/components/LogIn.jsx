@@ -11,7 +11,7 @@ function LogIn(props) {
         let gamer = prompt("enter name:");
 
         if (players.every(obj => obj.name !== gamer)) {
-            setPlayers(prevPlayers => [...prevPlayers, { name: gamer, number:'' }]);
+            setPlayers(prevPlayers => [...prevPlayers, { name: gamer, number:'',steps:0 }]);
             let localStoragePlayers = JSON.parse(localStorage.getItem('players'));
             if (localStoragePlayers == null)
                 localStoragePlayers = [];
@@ -30,7 +30,7 @@ function LogIn(props) {
             {players.map((player, i) =>
                 <div key={i}>{player.name}</div>
             )}
-            <button onClick={() => { startGame(true) }}>start game</button>
+            <button onClick={() => {players[0]==null? alert("There are no players!"):startGame(true) }}>start game</button>
         </>
     )
 }
