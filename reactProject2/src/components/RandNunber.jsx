@@ -2,7 +2,7 @@ import { useState } from "react";
 import LogIn from "./LogIn";
 
 function RandNumber(props) {
-    const { player, setPlayers, players, setKeyChange } = props;
+    const { player, setPlayers, players, setKeyChange, setActivePlayer } = props;
     const playersArray = players;
     if(playersArray[playersArray.indexOf(player)].number==''){
         const rand = Math.floor(Math.random() * 99);
@@ -28,6 +28,7 @@ function RandNumber(props) {
         }
         playersArray[playersArray.indexOf(player)].number = num;
         // setPlayers(playersArray);
+        setActivePlayer(prevActivePlayer=>((prevActivePlayer==players.length+1)?0:++prevActivePlayer));
         setKeyChange(prevKeyChange=>(++prevKeyChange));
     }
     return (

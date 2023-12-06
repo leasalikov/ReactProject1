@@ -9,6 +9,7 @@ function GameBoard(props) {
             <p>Player: {player.name}</p>
             <p>number: {player.number}</p>
             <p>Steps: {player.steps}</p>
+            <p>Activ: {player.active}</p>
         </div>
     )
 }
