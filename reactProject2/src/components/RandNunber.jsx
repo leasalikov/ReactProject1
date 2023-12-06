@@ -1,5 +1,3 @@
-import { useState } from "react";
-import LogIn from "./LogIn";
 
 function RandNumber(props) {
     const { player, setPlayers, players, setKeyChange, setActivePlayer } = props;
@@ -11,7 +9,7 @@ function RandNumber(props) {
     // setPlayers(players);
     let num = player.number;
     const updateNumber = (mathematicalOperation) => {
-    
+    if(player.active=="true"){
         switch (mathematicalOperation) {
             case '+':
                 num++;
@@ -28,9 +26,9 @@ function RandNumber(props) {
         }
         playersArray[playersArray.indexOf(player)].number = num;
         // setPlayers(playersArray);
-        setActivePlayer(prevActivePlayer=>((prevActivePlayer==players.length+1)?0:++prevActivePlayer));
+        setActivePlayer(prevActivePlayer=>((prevActivePlayer+1==players.length)?0:++prevActivePlayer));
         setKeyChange(prevKeyChange=>(++prevKeyChange));
-    }
+    }}
     return (
         <>
             <button onClick={() => { updateNumber('+') }}>+1</button>

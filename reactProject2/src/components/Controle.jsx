@@ -3,10 +3,12 @@ import GameBoard from "./GameBoard"
 import LogIn from "./LogIn"
 import RandNumber from "./RandNunber";
 // import Steps from "./Steps";
-// import ActivPlayer from "./ActivPlayer";
+import ActivePlayer from "./ActivePlayer";
 
 const Controle = () => {
-
+    // const style={
+    //     div:{display: 'flex'}
+    // }
     const [gameActive, setGameActive] = useState(false);
     const [players, setPlayers] = useState([]);
     const [keyChange, setKeyChange] = useState(0);
@@ -20,8 +22,9 @@ const Controle = () => {
 
                         <RandNumber player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />
                         {/* <Steps player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} activPlayer={activPlayer} /> */}
-                        {/* <ActivPlayer activPlayer={activPlayer} players={players} keyChange={keyChange}/> */}
-                        <GameBoard player={player} setPlayers={setPlayers} keyChange={keyChange} setActivePlayer={setActivePlayer} />                       
+                        <ActivePlayer activePlayer={activePlayer} players={players} player={player}/>
+                        <GameBoard player={player} setPlayers={setPlayers} keyChange={keyChange} setActivePlayer={setActivePlayer} />  
+                        <Win player={player} players={players}/>                     
                         <br />
                     </div>
                 ))}

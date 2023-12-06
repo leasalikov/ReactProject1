@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 
 
 function LogIn(props) {
@@ -11,7 +10,7 @@ function LogIn(props) {
         let gamer = prompt("enter name:");
 
         if (players.every(obj => obj.name !== gamer)) {
-            setPlayers(prevPlayers => [...prevPlayers, { name: gamer, number:'',steps:0, active:false}]);
+            setPlayers(prevPlayers => [...prevPlayers, { name: gamer, number:'',steps:0, active:"false"}]);
             let localStoragePlayers = JSON.parse(localStorage.getItem('players'));
             if (localStoragePlayers == null)
                 localStoragePlayers = [];
