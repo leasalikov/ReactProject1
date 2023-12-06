@@ -2,14 +2,19 @@
 
 function Win(props){
 
-    const {players, player}= props;
+    const {players, player, setPlayers, setKeyChange}= props;
 
     const NewGame = () => {
-        
+        const playersArray=players;
+        playersArray[playersArray.indexOf(player)]={ name: player.name, number:'',steps:0, active:"false"};
+        // setPlayers(playersArray);
+        setKeyChange(prevKeyChange=>(++prevKeyChange));
     }
     const Quit = () => {
-        playersArray=players;
-        playersArray[playersArray.indexOf(player)];
+        const playersArray=players;
+        playersArray.splice([playersArray.indexOf(player)],1);
+        // setPlayers(playersArray);
+        setKeyChange(prevKeyChange=>(++prevKeyChange));
     }
 
     if(player.number == 100){

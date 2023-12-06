@@ -4,6 +4,7 @@ import LogIn from "./LogIn"
 import RandNumber from "./RandNunber";
 // import Steps from "./Steps";
 import ActivePlayer from "./ActivePlayer";
+import Win from "./Win"
 
 const Controle = () => {
     // const style={
@@ -24,7 +25,7 @@ const Controle = () => {
                         {/* <Steps player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} activPlayer={activPlayer} /> */}
                         <ActivePlayer activePlayer={activePlayer} players={players} player={player}/>
                         <GameBoard player={player} setPlayers={setPlayers} keyChange={keyChange} setActivePlayer={setActivePlayer} />  
-                        <Win player={player} players={players}/>                     
+                        <Win player={player} players={players} setPlayers={setPlayers} setKeyChange={setKeyChange}/>                     
                         <br />
                     </div>
                 ))}
