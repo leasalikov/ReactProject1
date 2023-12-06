@@ -3,12 +3,21 @@
 function Win(props){
 
     const {players, player}= props;
-   if(player.number == 100){
+
+    const NewGame = () => {
+        
+    }
+    const Quit = () => {
+        playersArray=players;
+        playersArray[playersArray.indexOf(player)];
+    }
+
+    if(player.number == 100){
     return(
         <>
         <p>You Won!!!</p>
-        <button onClick={()=>NewGame()}>New Game</button>
-        <button onClick={()=>Quit()}>Quit</button>
+        <button onClick={NewGame}>New Game</button>
+        <button onClick={Quit}>Quit</button>
         </>
     )
    }
