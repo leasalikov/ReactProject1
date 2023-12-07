@@ -26,7 +26,9 @@ function RandNumber(props) {
         }
         playersArray[playersArray.indexOf(player)].number = num;
         // setPlayers(playersArray);
-        setActivePlayer(prevActivePlayer=>((prevActivePlayer+1==players.length)?0:++prevActivePlayer));
+        if(player.number!=100)
+            setActivePlayer(prevActivePlayer=>((prevActivePlayer+1==players.length)?0:++prevActivePlayer));
+        
         setKeyChange(prevKeyChange=>(++prevKeyChange));
     }}
     return (

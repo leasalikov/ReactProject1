@@ -5,10 +5,12 @@ function GameBoard(props) {
 
     return (
         <div key={keyChange}>
+            <p>Active: {player.active}</p>      
             <p>Player: {player.name}</p>
             <p>Number: {player.number}</p>
             <p>Steps: {player.steps}</p>
-            <p>Active: {player.active}</p>
+            <p>Score: {player.scores.map((playerScore, i) => (<span key={i}>{playerScore}, </span>))}</p>
+           
         </div>
     )
 }

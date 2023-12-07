@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState } from "react"
 import GameBoard from "./GameBoard"
 import LogIn from "./LogIn"
-import RandNumber from "./RandNunber";
-// import Steps from "./Steps";
-import ActivePlayer from "./ActivePlayer";
+import RandNumber from "./RandNunber"
+import Steps from "./Steps"
+import ActivePlayer from "./ActivePlayer"
 import Win from "./Win"
+import Scores from "./Scores"
+import TopPlayers from "./TopPlayers"
 
 const Controle = () => {
     // const style={
@@ -15,17 +17,20 @@ const Controle = () => {
     const [keyChange, setKeyChange] = useState(0);
     const [activePlayer, setActivePlayer] = useState(0);
 
+
     if (gameActive) {
         return (
             <>
+            <TopPlayers keyChange={keyChange} !!!/>
                 {players.map((player, i) => (
                     <div key={i}>
 
                         <RandNumber player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />
-                        {/* <Steps player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} activPlayer={activPlayer} /> */}
+                        <Steps player={player} setPlayers={setPlayers} players={players} activePlayer={activePlayer} />
                         <ActivePlayer activePlayer={activePlayer} players={players} player={player}/>
+                        <Scores player={player} players={players} />
                         <GameBoard player={player} setPlayers={setPlayers} keyChange={keyChange} setActivePlayer={setActivePlayer} />  
-                        <Win player={player} players={players} setPlayers={setPlayers} setKeyChange={setKeyChange}/>                     
+                        <Win player={player} players={players} setPlayers={setPlayers} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />                     
                         <br />
                     </div>
                 ))}
