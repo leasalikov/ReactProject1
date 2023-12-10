@@ -38,11 +38,11 @@ function SpecialKeys(prop) {
     }
 
     return (
-        <>
+        <div>
             <button onClick={() => CapsUpAll()}>UPPER ALL</button>
             <button onClick={() => DeleteAll()}>Delete all</button>
             <button onClick={() => UndoButton()}>Undo</button>
-        </>
+        </div>
     )
 }
 

@@ -15,14 +15,6 @@ function TypesOfKeyBoards(prop) {
         }
     }
 
-    // const Emoji = () => {
-    //     prop.setKeyBoard('EmogyKeyBoard');
-    // }
-
-    // const Simbol = () => {
-    //     prop.setKeyBoard('simbolsKeyBoard');
-    // }
-
     const changeToSpecialKeyBoard = (keyBoardKind) => {
         prop.setUndo(prevUndo => [...prevUndo, () => { prop.setKeyBoard(prop.keyBoard) }]);
         // prop.setUndo(prevUndo => [...prevUndo, {func: changeToSpecialKeyBoard, arg: prop.KeyBoard}]);
@@ -42,12 +34,12 @@ function TypesOfKeyBoards(prop) {
     }
 
     return (
-        <>
+        <div>
             <button onClick={() => changeLanguage()}>{prop.ChangeKeyBoard}</button>
             <button onClick={() => changeToSpecialKeyBoard('Emoji')}>😊</button>
             <button onClick={() => changeToSpecialKeyBoard('Simbol')}>simbols</button>
             <button onClick={() => changeToSpecialKeyBoard('upper')}>UPPER</button>
-        </>
+        </div>
     );
 
 }
