@@ -85,27 +85,26 @@ function KeyBoardButtons() {
 
     return (
         <div>
-            <p>!!!!!המקלדת המהממת</p>
             <OutputText text={text} />
             <br />
             {/* {getKeyboard(KeyBoard).map((letter, index) => (
                 <button key={index} className='key' onClick={() => handleClick(letter)}>{letter}</button>))}
                  */}
-{getKeyboard(KeyBoard).map((row, rowIndex) => (
-  <div key={rowIndex} className='keyboard-row'>
-    {row.map((letter, index) => (
-      <button key={index} className='key' onClick={() => handleClick(letter)}>{letter}</button>
-    ))}
-  </div>
-))}               
+            {getKeyboard(KeyBoard).map((row, rowIndex) => (
+                <div key={rowIndex} className='keyboard-row'>
+                {row.map((letter, index) => (<button key={index} className='key' onClick={() => handleClick(letter)}>{letter}</button>))}
+            </div>))}             
             <button className='buttonKey' onClick={() => enterButton()}>→</button>
             <button className='buttonKey' onClick={() => handleClick(" ")}>______</button>
             <button className='buttonKey' onClick={() => deleteChar()}>del</button>
             <br/>
+            <h1>Special keys:</h1>
             <SpecialKeys text={text} setText={setText} undo={undo} setUndo={setUndo} setColor={setColor} setKeyBoard={setKeyBoard} setChangeKeyBoard={setChangeKeyBoard} />
             <br/>
+            <h1>Types Of KeyBoards:</h1>
             <TypesOfKeyBoards setKeyBoard={setKeyBoard} keyBoard={KeyBoard} setChangeKeyBoard={setChangeKeyBoard} ChangeKeyBoard={ChangeKeyBoard} setUndo={setUndo} />
-            <br/>
+            
+            <h1>Styles:</h1>
             <Style setUndo={setUndo} color={color} setColor={setColor} size={size} setSize={setSize} />
         </div>
     );

@@ -55,6 +55,7 @@ function Style(prop) {
             <button style={styles.green} onClick={() => changeColor('green')}>green</button>
             <button style={styles.blue} onClick={() => changeColor('blue')}>blue</button>
             <button style={styles.black} onClick={() => changeColor('black')}>black</button>
+            <br/>  
             <button onClick={() => changeSize('big')}>big</button>
             <button onClick={() => changeSize('small')}>small</button>
             {/* <label for="dog-names">Choose a dog name:</label>  */}
