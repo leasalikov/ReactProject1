@@ -17,14 +17,12 @@ const Controle = () => {
     const [keyChange, setKeyChange] = useState(0);
     const [activePlayer, setActivePlayer] = useState(0);
 
-
     if (gameActive) {
         return (
-            <>
-            <TopPlayers keyChange={keyChange} !!!/>
+            <div>
+                <TopPlayers keyChange={keyChange}/>
                 {players.map((player, i) => (
-                    <div key={i}>
-
+                    <div key={i} className='gameBoard'>
                         <RandNumber player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />
                         <Steps player={player} setPlayers={setPlayers} players={players} activePlayer={activePlayer} />
                         <ActivePlayer activePlayer={activePlayer} players={players} player={player}/>
@@ -36,10 +34,9 @@ const Controle = () => {
                 ))}
                 {/* {players.map((player, i) => <GameBoard key={i} player={player} setPlayers={setPlayers} />)}
                 {players.map((player, i) => <RandNumber key={i} player={player} setPlayers={setPlayers} players={players} />)} */}
-            </>
+            </div>
         );
     }
-
     return (<LogIn startGame={setGameActive} players={players} setPlayers={setPlayers} />);
 }
 export default Controle;

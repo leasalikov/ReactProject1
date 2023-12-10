@@ -19,7 +19,6 @@ function TopPlayers(props) {
     return (
         <div key={props.keyChange}>
         <p>1. name: {winer.name}, average: {winer.average}</p>
-        <p></p>
         </div>
     )
 }

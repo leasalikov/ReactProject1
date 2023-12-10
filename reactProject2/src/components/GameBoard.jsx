@@ -1,4 +1,4 @@
-
+import './GameBoard.css'
 
 function GameBoard(props) {
     const { player, keyChange} = props;
@@ -9,8 +9,7 @@ function GameBoard(props) {
             <p>Player: {player.name}</p>
             <p>Number: {player.number}</p>
             <p>Steps: {player.steps}</p>
-            <p>Score: {player.scores.map((playerScore, i) => (<span key={i}>{playerScore}, </span>))}</p>
-           
+            <p>Score: {player.scores.map((playerScore, i) => (<span key={i}>{playerScore}, </span>))}</p>           
         </div>
     )
 }
