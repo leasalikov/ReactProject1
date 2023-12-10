@@ -18,17 +18,6 @@ function SpecialKeys(prop) {
         prop.setText(newText);
     };
 
-    // const UndoButton = () => {
-    //     console.log(prop.undo[prop.undo.length - 1]);
-    //     if (prop.undo[prop.undo.length - 1] && prop.undo[prop.undo.length - 1].color === 'black') {
-    //         prop.setColor({ color: 'black' });
-    //     } else if (prop.undo[prop.undo.length - 1]) {
-    //         prop.setText(prop.undo[prop.undo.length - 1]);
-    //     }
-    //     let prevUndo = prop.undo.slice(0, -1);
-    //     prop.setUndo(prevUndo);
-    // };
-
     const UndoButton = () => {
         if (prop.undo != "") {
             prop.undo[prop.undo.length - 1]();

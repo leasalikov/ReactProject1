@@ -59,12 +59,12 @@ function Style(prop) {
             <button onClick={() => changeSize('big')}>big</button>
             <button onClick={() => changeSize('small')}>small</button>
             {/* <label for="dog-names">Choose a dog name:</label>  */}
-            <select name="dog-names" id="dog-names"> 
+            {/* <select name="dog-names" id="dog-names"> 
                 <option value=""></option> 
                 <option value=""></option> 
                 <option value=""></option> 
                 <option value=""></option> 
-            </select>
+            </select> */}
         </div>
     )
 }

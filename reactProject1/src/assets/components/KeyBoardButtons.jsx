@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import style from "./components/KeyBoard.css";
 import './KeyBoardButtons.css'
 import TypesOfKeyBoards from './TypesOfKeyBoards'
 import OutputText from "./OutputText";
@@ -20,29 +19,26 @@ function KeyBoardButtons() {
         ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '.'],
         ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '?', '!']
       ];
-      const simbolsKeyBoard = [
+    const simbolsKeyBoard = [
         ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
         ['.', ',', '?', '!', ':', '(', ')', '@', '#', '$'],
         ['%', '^', '&', '*', '-', '=', '+', '[', ']']
       ];
-      const EmogyKeyBoard = [
+    const EmogyKeyBoard = [
         ['😂', '❤️', '🤣', '👍', '😭', '🙏', '😘', '🥰', '😍', '😊'],
         ['😁', '💕', '🥺', '😅', '🙄', '😆', '🤗', '😉', '🤔', '👏'],
         ['🙂', '😳', '🥳', '😎', '😔', '😏', '😢', '👉', '💗']
       ];
-      const HebrewAlphabet = [
+    const HebrewAlphabet = [
         [ '!', 'ק', 'ר', 'א', 'ט', 'ו', 'ן', 'ם', 'פ', ','],
         [, 'ש', 'ד', 'ג', 'כ', 'ע', 'י', 'ח', 'ל', 'ך', 'ף'],
         [, 'ז', 'ס', 'ב', 'ה', 'נ', 'מ', 'צ', 'ת', 'ץ', '.', '?']
       ];
-    //const EnglishAlphabet = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.', ',', '?', '!'];
-    //const HebrewAlphabet = ['ק', 'ר', 'א', 'ט', 'ו', 'ן', 'ם', 'פ', 'ש', 'ד', 'ג', 'כ', 'ע', 'י', 'ח', 'ל', 'ך', 'ף', 'ז', 'ס', 'ב', 'ה', 'נ', 'מ', 'צ', 'ת', 'ץ', '.', ',', '?', '!'];
-    //const EmogyKeyBoard = ['😂', '❤️', '🤣', '👍', '😭', '🙏', '😘', '🥰', '😍', '😊', '😁', '💕', '🥺', '😅', '🙄', '😆', '🤗', '😉', '🤔', '👏', '🙂', '😳', '🥳', '😎', '😔', '😏', '😢', '👉', '💗'];
-    //const simbolsKeyBoard = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', ',', '?', '!', ':', '(', ')', '@', '#', '$', '%', '^', '&', '*', '-', '=', '+', '[', ']']
-    //const UpperCaseAlphabet = EnglishAlphabet.map((letter) => (letter.toUpperCase()));
+
     const UpperCaseAlphabet = EnglishAlphabet.map(row =>
         row.map(letter => letter.toUpperCase())
       );
+      
     const getKeyboard = (keyboard) => {
         switch (keyboard) {
             case 'EnglishAlphabet':
@@ -102,8 +98,7 @@ function KeyBoardButtons() {
             <SpecialKeys text={text} setText={setText} undo={undo} setUndo={setUndo} setColor={setColor} setKeyBoard={setKeyBoard} setChangeKeyBoard={setChangeKeyBoard} />
             <br/>
             <h1>Types Of KeyBoards:</h1>
-            <TypesOfKeyBoards setKeyBoard={setKeyBoard} keyBoard={KeyBoard} setChangeKeyBoard={setChangeKeyBoard} ChangeKeyBoard={ChangeKeyBoard} setUndo={setUndo} />
-            
+            <TypesOfKeyBoards setKeyBoard={setKeyBoard} keyBoard={KeyBoard} setChangeKeyBoard={setChangeKeyBoard} ChangeKeyBoard={ChangeKeyBoard} setUndo={setUndo} />           
             <h1>Styles:</h1>
             <Style setUndo={setUndo} color={color} setColor={setColor} size={size} setSize={setSize} />
         </div>
