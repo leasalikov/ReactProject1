@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import KeyBoardButtons from './KeyBoardButtons'
+
 function Style(prop) {
 
     const styles = {
@@ -7,18 +6,13 @@ function Style(prop) {
         green: { color: 'green' },
         blue: { color: 'blue' },
         black: { color: 'black' },
-        big: { fontSize: '30px' },
-        defoultSize: { fontSize: '20px' },
-        small: { fontSize: '10px' }
+        // big: { fontSize: '30px' },
+        // defoultSize: { fontSize: '20px' },
+        // small: { fontSize: '10px' }
     }
-
-    // const [color, setColor] = useState(styles.black);
-    // const [size, setSize] = useState(styles.defoultSize);
 
     const changeColor = (mycolor) => {
         prop.setUndo(prevUndo => [...prevUndo, () => { prop.setColor(prop.color) }]);
-        // prop.setUndo(prevUndo => [...prevUndo, prop.color]);
-        // prop.setUndo(prevUndo => [...prevUndo, {func: changeColor, arg: prop.color}]);
         switch (mycolor) {
             case 'red':
                 prop.setColor(styles.red);
@@ -35,22 +29,33 @@ function Style(prop) {
         }
     }
 
+    // const changeSize = (mysize) => {
+    //     prop.setUndo(prevUndo => [...prevUndo, () => { prop.setSize(prop.size) }]);
+    //     switch (mysize) {
+    //         case 'big':
+    //             prop.setSize(styles.big)
+    //             break;
+    //         case 'small':
+    //             prop.setSize(styles.small)
+    //             break;
+    //     }
+    // }
+
     const changeSize = (mysize) => {
         prop.setUndo(prevUndo => [...prevUndo, () => { prop.setSize(prop.size) }]);
-        // prop.setUndo(prevUndo => [...prevUndo, {func: changeSize, arg: prop.size}]);
         switch (mysize) {
             case 'big':
-                prop.setSize(styles.big)
+                prop.setSize(prop.size + 5)
                 break;
             case 'small':
-                prop.setSize(styles.small)
+                if (prop.size > 10)
+                    prop.setSize(prop.size - 5)
                 break;
         }
     }
 
     return (
         <div>
-            {/* <KeyBoardButtons color={color} size={size} /> */}
             <button style={styles.red} onClick={() => changeColor('red')}>red</button>
             <button style={styles.green} onClick={() => changeColor('green')}>green</button>
             <button style={styles.blue} onClick={() => changeColor('blue')}>blue</button>

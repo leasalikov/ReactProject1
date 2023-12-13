@@ -11,7 +11,8 @@ function KeyBoardButtons() {
     const [ChangeKeyBoard, setChangeKeyBoard] = useState('עברית');
     const [undo, setUndo] = useState([]);
     const [color, setColor] = useState({ color: 'black' });
-    const [size, setSize] = useState({ fontSize: '20px' });
+    // const [size, setSize] = useState({ fontSize: '20px' });
+    const [size, setSize] = useState(25);
     const [text, setText] = useState([{ letter: "", color: color, size: size }]);
 
     const EnglishAlphabet = [
@@ -58,24 +59,19 @@ function KeyBoardButtons() {
 
     const handleClick = (newLetter) => {
         setUndo(prevUndo => [...prevUndo, () => { setText(text) }]);
-        // setUndo(prevUndo => [...prevUndo, text]);
-        // setUndo(prevUndo => [...prevUndo, {func: deleteChar}]);
-        setText(prevText => [...prevText, { letter: newLetter, color: color, size: size }]);
+        // setText(prevText => [...prevText, { letter: newLetter, color: color, size: size }]);
+        setText(prevText => [...prevText, { letter: newLetter, color: color, size: { fontSize: `${size}px` } }]);
     };
 
     const deleteChar = () => {
         setUndo(prevUndo => [...prevUndo, () => { setText(text) }]);
-        // setUndo(prevUndo => [...prevUndo, text]);
         let deleteLetter = text[text.length - 1].letter;
         console.log(deleteLetter);
         setText(prevText => prevText.slice(0, -1));
-        // setUndo(prevUndo => [...prevUndo, {func: handleClick, arg: deleteLetter}]);
     };
 
     const enterButton = () => {
         setUndo(prevUndo => [...prevUndo, () => { setText(text) }]);
-        // setUndo(prevUndo => [...prevUndo, {func: deleteChar}]);
-        // setUndo(prevUndo => [...prevUndo, text]);
         setText(prevText => [...prevText, { letter: <br /> }]);
     };
 

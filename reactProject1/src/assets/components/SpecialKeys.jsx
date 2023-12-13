@@ -1,11 +1,8 @@
-import React, { useState } from "react";
 
 function SpecialKeys(prop) {
 
     const DeleteAll = () => {
-        // let all = prop.text;
         prop.setUndo(prevUndo => [...prevUndo, () => { prop.setText(prop.text) }]);
-        // prop.setUndo(prevUndo => [...prevUndo, {func: writeAll, arg: all}]);
         prop.setText([]);
     }
 

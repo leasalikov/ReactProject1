@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import KeyBoardButtons from './KeyBoardButtons';
 
 function TypesOfKeyBoards(prop) {
 
@@ -17,7 +15,6 @@ function TypesOfKeyBoards(prop) {
 
     const changeToSpecialKeyBoard = (keyBoardKind) => {
         prop.setUndo(prevUndo => [...prevUndo, () => { prop.setKeyBoard(prop.keyBoard) }]);
-        // prop.setUndo(prevUndo => [...prevUndo, {func: changeToSpecialKeyBoard, arg: prop.KeyBoard}]);
         switch (keyBoardKind) {
             case 'Emoji':
                 prop.setKeyBoard('EmogyKeyBoard');
