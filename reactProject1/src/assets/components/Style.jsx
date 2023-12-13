@@ -96,12 +96,12 @@ function Style(prop) {
             <br />
             <button onClick={() => changeSize('big')}>big</button>
             <button onClick={() => changeSize('small')}>small</button>
-            <select value={prop.font} onChange={e => changeFontFamily(e)}>
-                <option value="Sans-serif">Sans-serif</option>
-                <option value="Serif">Serif</option>
-                <option value="Monospace">Monospace</option>
-                <option value="Cursive">Cursive</option>
-                <option value="Fantasy">Fantasy</option>
+            <select style={{ fontFamily: prop.font }} value={prop.font} onChange={e => changeFontFamily(e)}>
+                <option style={{ fontFamily: "Sans-serif" }} value="Sans-serif">Sans-serif</option>
+                <option style={{ fontFamily: "Serif" }} value="Serif">Serif</option>
+                <option style={{ fontFamily: "Monospace" }} value="Monospace">Monospace</option>
+                <option style={{ fontFamily: "Cursive" }} value="Cursive">Cursive</option>
+                <option style={{ fontFamily: "Fantasy" }} value="Fantasy">Fantasy</option>
             </select>
         </div>
     )

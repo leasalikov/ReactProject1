@@ -59,7 +59,7 @@ function KeyBoardButtons() {
         }
     }
 
-    const handleClick = (newLetter) => {
+    const addChar = (newLetter) => {
         setUndo(prevUndo => [...prevUndo, () => { setText(text) }]);
         // setText(prevText => [...prevText, { letter: newLetter, color: color, size: size }]);
         // setText(prevText => [...prevText, { letter: newLetter, color: color, size: { fontSize: `${size}px` } }]);
@@ -87,10 +87,10 @@ function KeyBoardButtons() {
                  */}
             {getKeyboard(KeyBoard).map((row, rowIndex) => (
                 <div key={rowIndex} className='keyboard-row'>
-                    {row.map((letter, index) => (<button key={index} className='key' onClick={() => handleClick(letter)}>{letter}</button>))}
+                    {row.map((letter, index) => (<button key={index} className='key' onClick={() => addChar(letter)}>{letter}</button>))}
                 </div>))}
             <button className='buttonKey' onClick={() => enterButton()}>→</button>
-            <button className='buttonKey' onClick={() => handleClick(" ")}>______</button>
+            <button className='buttonKey' onClick={() => addChar(" ")}>______</button>
             <button className='buttonKey' onClick={() => deleteChar()}>del</button>
             <br />
             <h1>Special keys:</h1>
