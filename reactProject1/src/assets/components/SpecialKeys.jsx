@@ -2,8 +2,10 @@
 function SpecialKeys(prop) {
 
     const DeleteAll = () => {
-        prop.setUndo(prevUndo => [...prevUndo, () => { prop.setText(prop.text) }]);
-        prop.setText([]);
+        if (prop.text != "") {
+            prop.setUndo(prevUndo => [...prevUndo, () => { prop.setText(prop.text) }]);
+            prop.setText([]);
+        }
     }
 
     const CapsUpAll = () => {

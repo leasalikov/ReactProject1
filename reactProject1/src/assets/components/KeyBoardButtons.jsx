@@ -10,36 +10,38 @@ function KeyBoardButtons() {
     const [KeyBoard, setKeyBoard] = useState('EnglishAlphabet');
     const [ChangeKeyBoard, setChangeKeyBoard] = useState('עברית');
     const [undo, setUndo] = useState([]);
-    const [color, setColor] = useState({ color: 'black' });
+    // const [color, setColor] = useState({ color: 'black' });
+    const [color, setColor] = useState('black');
     // const [size, setSize] = useState({ fontSize: '20px' });
     const [size, setSize] = useState(25);
-    const [text, setText] = useState([{ letter: "", color: color, size: size }]);
+    const [text, setText] = useState([]);
+    const [font, setFont] = useState("Monospace");
 
     const EnglishAlphabet = [
         ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
         ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '.'],
         ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '?', '!']
-      ];
+    ];
     const simbolsKeyBoard = [
         ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
         ['.', ',', '?', '!', ':', '(', ')', '@', '#', '$'],
         ['%', '^', '&', '*', '-', '=', '+', '[', ']']
-      ];
+    ];
     const EmogyKeyBoard = [
         ['😂', '❤️', '🤣', '👍', '😭', '🙏', '😘', '🥰', '😍', '😊'],
         ['😁', '💕', '🥺', '😅', '🙄', '😆', '🤗', '😉', '🤔', '👏'],
         ['🙂', '😳', '🥳', '😎', '😔', '😏', '😢', '👉', '💗']
-      ];
+    ];
     const HebrewAlphabet = [
-        [ '!', 'ק', 'ר', 'א', 'ט', 'ו', 'ן', 'ם', 'פ', ','],
+        ['!', 'ק', 'ר', 'א', 'ט', 'ו', 'ן', 'ם', 'פ', ','],
         [, 'ש', 'ד', 'ג', 'כ', 'ע', 'י', 'ח', 'ל', 'ך', 'ף'],
         [, 'ז', 'ס', 'ב', 'ה', 'נ', 'מ', 'צ', 'ת', 'ץ', '.', '?']
-      ];
+    ];
 
     const UpperCaseAlphabet = EnglishAlphabet.map(row =>
         row.map(letter => letter.toUpperCase())
-      );
-      
+    );
+
     const getKeyboard = (keyboard) => {
         switch (keyboard) {
             case 'EnglishAlphabet':
@@ -60,14 +62,15 @@ function KeyBoardButtons() {
     const handleClick = (newLetter) => {
         setUndo(prevUndo => [...prevUndo, () => { setText(text) }]);
         // setText(prevText => [...prevText, { letter: newLetter, color: color, size: size }]);
-        setText(prevText => [...prevText, { letter: newLetter, color: color, size: { fontSize: `${size}px` } }]);
+        // setText(prevText => [...prevText, { letter: newLetter, color: color, size: { fontSize: `${size}px` } }]);
+        setText(prevText => [...prevText, { letter: newLetter, color: color, size: size, font: font }]);
     };
 
     const deleteChar = () => {
-        setUndo(prevUndo => [...prevUndo, () => { setText(text) }]);
-        let deleteLetter = text[text.length - 1].letter;
-        console.log(deleteLetter);
-        setText(prevText => prevText.slice(0, -1));
+        if (text != "") {
+            setUndo(prevUndo => [...prevUndo, () => { setText(text) }]);
+            setText(prevText => prevText.slice(0, -1));
+        }
     };
 
     const enterButton = () => {
@@ -84,19 +87,21 @@ function KeyBoardButtons() {
                  */}
             {getKeyboard(KeyBoard).map((row, rowIndex) => (
                 <div key={rowIndex} className='keyboard-row'>
-                {row.map((letter, index) => (<button key={index} className='key' onClick={() => handleClick(letter)}>{letter}</button>))}
-            </div>))}             
+                    {row.map((letter, index) => (<button key={index} className='key' onClick={() => handleClick(letter)}>{letter}</button>))}
+                </div>))}
             <button className='buttonKey' onClick={() => enterButton()}>→</button>
             <button className='buttonKey' onClick={() => handleClick(" ")}>______</button>
             <button className='buttonKey' onClick={() => deleteChar()}>del</button>
-            <br/>
+            <br />
             <h1>Special keys:</h1>
-            <SpecialKeys text={text} setText={setText} undo={undo} setUndo={setUndo} setColor={setColor} setKeyBoard={setKeyBoard} setChangeKeyBoard={setChangeKeyBoard} />
-            <br/>
+            {/* <SpecialKeys text={text} setText={setText} undo={undo} setUndo={setUndo} setColor={setColor} setKeyBoard={setKeyBoard} setChangeKeyBoard={setChangeKeyBoard} /> */}
+            <SpecialKeys text={text} setText={setText} undo={undo} setUndo={setUndo} />
+            <br />
             <h1>Types Of KeyBoards:</h1>
-            <TypesOfKeyBoards setKeyBoard={setKeyBoard} keyBoard={KeyBoard} setChangeKeyBoard={setChangeKeyBoard} ChangeKeyBoard={ChangeKeyBoard} setUndo={setUndo} />           
+            <TypesOfKeyBoards setKeyBoard={setKeyBoard} keyBoard={KeyBoard} setChangeKeyBoard={setChangeKeyBoard} ChangeKeyBoard={ChangeKeyBoard} setUndo={setUndo} />
             <h1>Styles:</h1>
-            <Style setUndo={setUndo} color={color} setColor={setColor} size={size} setSize={setSize} />
+            {/* <Style setUndo={setUndo} color={color} setColor={setColor} size={size} setSize={setSize} /> */}
+            <Style setUndo={setUndo} color={color} setColor={setColor} size={size} setSize={setSize} font={font} setFont={setFont} />
         </div>
     );
 }
