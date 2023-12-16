@@ -1,10 +1,13 @@
 import './GameBoard.css'
-
 function GameBoard(props) {
     const { player, keyChange} = props;
-
+    let activeClass;
+    if(player.active=="true"||player.active=="Win")
+        activeClass ="active";
+    else
+        activeClass ="notActive";
     return (
-        <div key={keyChange}>
+        <div class={`${activeClass}`} key={keyChange}>
             <p>Active: {player.active}</p>      
             <p>Player: {player.name}</p>
             <p>Number: {player.number}</p>

@@ -1,4 +1,4 @@
-
+import './GameBoard.css'
 function Win(props){
 
     const {players, player, setPlayers, setKeyChange, setActivePlayer}= props;
@@ -21,7 +21,7 @@ function Win(props){
         
     return(
         <>
-        <p>You Won!!!</p>
+        <p className="youWon">You Won!!!</p>
         <button onClick={NewGame}>New Game</button>
         <button onClick={Quit}>Quit</button>
         </>

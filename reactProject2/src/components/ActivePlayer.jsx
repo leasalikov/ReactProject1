@@ -1,8 +1,10 @@
-import './ActivePlayer.css'
+
 function ActivePlayer(props){
     const {activePlayer, players, player} = props;
     const playersArray = players;
+
     if(playersArray.indexOf(player) == activePlayer ){
+        playersArray.indexOf(player)
         if(player.number == 100)
             playersArray[playersArray.indexOf(player)].active = "Win";
         else{
