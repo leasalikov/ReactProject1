@@ -10,9 +10,7 @@ function KeyBoardButtons() {
     const [KeyBoard, setKeyBoard] = useState('EnglishAlphabet');
     const [ChangeKeyBoard, setChangeKeyBoard] = useState('עברית');
     const [undo, setUndo] = useState([]);
-    // const [color, setColor] = useState({ color: 'black' });
     const [color, setColor] = useState('black');
-    // const [size, setSize] = useState({ fontSize: '20px' });
     const [size, setSize] = useState(25);
     const [text, setText] = useState([]);
     const [font, setFont] = useState("Monospace");
@@ -82,9 +80,6 @@ function KeyBoardButtons() {
         <div>
             <OutputText text={text} />
             <br />
-            {/* {getKeyboard(KeyBoard).map((letter, index) => (
-                <button key={index} className='key' onClick={() => handleClick(letter)}>{letter}</button>))}
-                 */}
             {getKeyboard(KeyBoard).map((row, rowIndex) => (
                 <div key={rowIndex} className='keyboard-row'>
                     {row.map((letter, index) => (<button key={index} className='key' onClick={() => addChar(letter)}>{letter}</button>))}
@@ -94,13 +89,11 @@ function KeyBoardButtons() {
             <button className='buttonKey' onClick={() => deleteChar()}>del</button>
             <br />
             <h1>Special keys:</h1>
-            {/* <SpecialKeys text={text} setText={setText} undo={undo} setUndo={setUndo} setColor={setColor} setKeyBoard={setKeyBoard} setChangeKeyBoard={setChangeKeyBoard} /> */}
             <SpecialKeys text={text} setText={setText} undo={undo} setUndo={setUndo} />
             <br />
             <h1>Types Of KeyBoards:</h1>
             <TypesOfKeyBoards setKeyBoard={setKeyBoard} keyBoard={KeyBoard} setChangeKeyBoard={setChangeKeyBoard} ChangeKeyBoard={ChangeKeyBoard} setUndo={setUndo} />
             <h1>Styles:</h1>
-            {/* <Style setUndo={setUndo} color={color} setColor={setColor} size={size} setSize={setSize} /> */}
             <Style setUndo={setUndo} color={color} setColor={setColor} size={size} setSize={setSize} font={font} setFont={setFont} />
         </div>
     );

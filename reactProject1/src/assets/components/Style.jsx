@@ -1,35 +1,6 @@
 
 function Style(prop) {
 
-    // const styles = {
-    //     red: { color: 'red' },
-    //     green: { color: 'green' },
-    //     blue: { color: 'blue' },
-    //     black: { color: 'black' },
-    //     // big: { fontSize: '30px' },
-    //     // defoultSize: { fontSize: '20px' },
-    //     // small: { fontSize: '10px' }
-    // }
-
-
-    // const changeColor = (mycolor) => {
-    //     prop.setUndo(prevUndo => [...prevUndo, () => { prop.setColor(prop.color) }]);
-    //     switch (mycolor) {
-    //         case 'red':
-    //             prop.setColor(styles.red);
-    //             break;
-    //         case 'green':
-    //             prop.setColor(styles.green)
-    //             break;
-    //         case 'blue':
-    //             prop.setColor(styles.blue)
-    //             break;
-    //         case 'black':
-    //             prop.setColor(styles.black)
-    //             break;
-    //     }
-    // }
-
     const changeColor = (mycolor) => {
         if (prop.color != mycolor) {
             prop.setUndo(prevUndo => [...prevUndo, () => { prop.setColor(prop.color) }]);
@@ -50,18 +21,6 @@ function Style(prop) {
         }
     }
 
-    // const changeSize = (mysize) => {
-    //     prop.setUndo(prevUndo => [...prevUndo, () => { prop.setSize(prop.size) }]);
-    //     switch (mysize) {
-    //         case 'big':
-    //             prop.setSize(styles.big)
-    //             break;
-    //         case 'small':
-    //             prop.setSize(styles.small)
-    //             break;
-    //     }
-    // }
-
     const changeSize = (mysize) => {
         if (prop.size > 10) {
             prop.setUndo(prevUndo => [...prevUndo, () => { prop.setSize(prop.size) }]);
@@ -76,19 +35,15 @@ function Style(prop) {
         }
     }
 
-    const changeFontFamily = (ev) => {
-        if (prop.font != ev.target.value) {
+    const changeFontFamily = (event) => {
+        if (prop.font != event.target.value) {
             prop.setUndo(prevUndo => [...prevUndo, () => { prop.setFont(prop.font) }]);
-            prop.setFont(ev.target.value);
+            prop.setFont(event.target.value);
         }
     }
 
     return (
         <div>
-            {/* <button style={styles.red} onClick={() => changeColor('red')}>red</button>
-            <button style={styles.green} onClick={() => changeColor('green')}>green</button>
-            <button style={styles.blue} onClick={() => changeColor('blue')}>blue</button>
-            <button style={styles.black} onClick={() => changeColor('black')}>black</button> */}
             <button style={{ color: 'red' }} onClick={() => changeColor('red')}>red</button>
             <button style={{ color: 'green' }} onClick={() => changeColor('green')}>green</button>
             <button style={{ color: 'blue' }} onClick={() => changeColor('blue')}>blue</button>
@@ -96,7 +51,8 @@ function Style(prop) {
             <br />
             <button onClick={() => changeSize('big')}>big</button>
             <button onClick={() => changeSize('small')}>small</button>
-            <select style={{ fontFamily: prop.font }} value={prop.font} onChange={e => changeFontFamily(e)}>
+            <select style={{ fontFamily: prop.font }} onChange={e => changeFontFamily(e)}>
+                <option style={{ fontFamily: "Sans-serif" }} value="" disabled selected hidden>choose a fond</option>
                 <option style={{ fontFamily: "Sans-serif" }} value="Sans-serif">Sans-serif</option>
                 <option style={{ fontFamily: "Serif" }} value="Serif">Serif</option>
                 <option style={{ fontFamily: "Monospace" }} value="Monospace">Monospace</option>
