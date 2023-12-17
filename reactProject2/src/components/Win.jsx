@@ -1,19 +1,21 @@
 import './GameBoard.css'
 function Win(props){
 
-    const {players, player, setKeyChange, setActivePlayer}= props;
-
+    const {players, player, setKeyChange, setActivePlayer, setGameActive}= props;
+    const playersArray=players;
+    let playerIndex=playersArray.indexOf(player);
     const NewGame = () => {
-        const playersArray=players;
-        playersArray[playersArray.indexOf(player)]={ name: player.name, number:'',steps:0, active:"false", scores:player.scores};
+        playersArray[playerIndex]={ name: player.name, number:'',steps:0, active:"false", scores:player.scores};
         // setPlayers(playersArray);
         setActivePlayer(prevActivePlayer=>((prevActivePlayer+1==players.length)?0:++prevActivePlayer));
         setKeyChange(prevKeyChange=>(++prevKeyChange));
     }
     const Quit = () => {
-        const playersArray=players;
-        playersArray.splice([playersArray.indexOf(player)], 1);
-        // setPlayers(playersArray);
+        if(playersArray[playerIndex] == playersArray[playersArray.length-1])
+            setActivePlayer(0);
+        playersArray.splice(playerIndex, 1);
+        if(playersArray.length==0)
+            setGameActive(false);
         setKeyChange(prevKeyChange=>(++prevKeyChange));
     }
 

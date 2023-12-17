@@ -29,7 +29,7 @@ const Controle = () => {
                         <ActivePlayer activePlayer={activePlayer} players={players} player={player}/>
                         <Scores player={player} players={players} />
                         <GameBoard player={player} setPlayers={setPlayers} keyChange={keyChange} setActivePlayer={setActivePlayer} />  
-                        <Win player={player} players={players} setPlayers={setPlayers} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />                     
+                        <Win player={player} players={players} setPlayers={setPlayers} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} setGameActive={setGameActive}/>                     
                         <br />
                     </div>
                 ))}

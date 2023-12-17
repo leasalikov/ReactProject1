@@ -15,16 +15,17 @@ function TopPlayers(props) {
             minAverage = sum / localStoragePlayers[firstIndex].scores.length;
             winers[index] = localStoragePlayers[firstIndex];
             localStoragePlayers.forEach((player) => {
+                let myIndex=localStoragePlayers.indexOf(player)
                 sum = 0;
                 if (player.scores.length !== 0) {
                     player.scores.forEach(score => {
                         sum += score;
                     });
-                    localStoragePlayers[localStoragePlayers.indexOf(player)].average = sum / player.scores.length;
+                    localStoragePlayers[myIndex].average = sum / player.scores.length;
                     if (player.average < minAverage) {
                         minAverage = player.average;
                         winers[index] = player;
-                        winnerIndex=localStoragePlayers.indexOf(player);
+                        winnerIndex=myIndex;
                     }
                 }
             })

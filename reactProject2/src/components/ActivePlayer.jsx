@@ -2,20 +2,18 @@
 function ActivePlayer(props){
     const {activePlayer, players, player} = props;
     const playersArray = players;
-
-    if(playersArray.indexOf(player) == activePlayer ){
-        playersArray.indexOf(player)
+    let playerIndex=playersArray.indexOf(player);
+    if(playerIndex == activePlayer ){
         if(player.number == 100){
-            playersArray[playersArray.indexOf(player)].active = "Win";
-            //playersArray[playersArray.indexOf(player)].style = 'activePlayer';
+            playersArray[playerIndex].active = "Win";
         }
         else{
-            playersArray[playersArray.indexOf(player)].active = "true";     
-            playersArray[playersArray.indexOf(player)].style = 'activePlayer';
+            playersArray[playerIndex].active = "true";     
+            playersArray[playerIndex].style = 'activePlayer';
         }
     }     
     else
-        playersArray[playersArray.indexOf(player)].active = "false";
+        playersArray[playerIndex].active = "false";
     
     return(
         <></>

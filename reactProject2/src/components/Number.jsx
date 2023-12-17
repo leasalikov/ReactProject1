@@ -2,9 +2,10 @@
 function Number(props) {
     const { player, setPlayers, players, setKeyChange, setActivePlayer } = props;
     const playersArray = players;
-    if(playersArray[playersArray.indexOf(player)].number==''){
+    let playerIndex=playersArray.indexOf(player);
+    if(playersArray[playerIndex].number==''){
         const rand = Math.floor(Math.random() * 99);
-        playersArray[playersArray.indexOf(player)].number = rand;
+        playersArray[playerIndex].number = rand;
     }
     // setPlayers(players);
     let num = player.number;
@@ -24,7 +25,7 @@ function Number(props) {
                 num= parseInt(num / 2);
                 break;
         }
-        playersArray[playersArray.indexOf(player)].number = num;
+        playersArray[playerIndex].number = num;
         // setPlayers(playersArray);
         if(player.number!=100)
             setActivePlayer(prevActivePlayer=>((prevActivePlayer+1==players.length)?0:++prevActivePlayer));
