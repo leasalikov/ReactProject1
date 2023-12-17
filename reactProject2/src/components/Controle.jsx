@@ -7,6 +7,7 @@ import ActivePlayer from "./ActivePlayer"
 import Win from "./Win"
 import Scores from "./Scores"
 import TopPlayers from "./TopPlayers"
+import './GameBoard.css'
 
 const Controle = () => {
     // const style={

@@ -36,7 +36,7 @@ function LogIn(props) {
             <h2>Enter to register players:</h2>
             <button onClick={signUser} className="logIn">👉</button>
             <br />
-            <p className="gameBoard">
+            <p className="input">
             {players.map((player, i) =>
                 <div key={i}>{player.name}</div>
             )}

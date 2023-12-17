@@ -5,8 +5,10 @@ function ActivePlayer(props){
 
     if(playersArray.indexOf(player) == activePlayer ){
         playersArray.indexOf(player)
-        if(player.number == 100)
+        if(player.number == 100){
             playersArray[playersArray.indexOf(player)].active = "Win";
+            //playersArray[playersArray.indexOf(player)].style = 'activePlayer';
+        }
         else{
             playersArray[playersArray.indexOf(player)].active = "true";     
             playersArray[playersArray.indexOf(player)].style = 'activePlayer';
@@ -17,7 +19,6 @@ function ActivePlayer(props){
     
     return(
         <></>
-    )
-    
+    )    
 }
 export default ActivePlayer;

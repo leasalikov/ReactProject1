@@ -1,3 +1,4 @@
+
 .gameBoard{
     /* width: 300px;  */
     /* height: 400px;  */
@@ -11,6 +12,7 @@
     align-items: center;
     font-family:cursive;
     font-size: 20px;
+    display: inline-block;
 }
 body {
     margin: 0;
@@ -19,6 +21,8 @@ body {
     min-width: 320px;
     min-height: 100vh;
     display: flex;
+    color: black;
+    background-color: paleturquoise;
     /* flex-direction: column;
     justify-content: center;
     align-items: center; */
@@ -49,10 +53,6 @@ body {
     font-style: italic;
     color: blue;
   }
-  body{
-    color: black;
-    background-color: paleturquoise;
-  }
   .topPlayers{
     margin-bottom: 30px; 
     /* margin-top: 0px; */
@@ -67,28 +67,10 @@ body {
     font-size: 1em;
     font-family:cursive;
     color: blue;
+    /* width: 300px; */
     }
   .youWon, h1, h2{
     font-size: 2em;
     font-family:cursive;
     color: darkblue;
-  }
-  .logIn{
-    /* margin: 5px;  */
-    border-radius: 15px;
-    background-color:azure;
-    border: 3px solid blue; 
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family:cursive;
-    font-size: 20px;
-    color: blue;
-  }
-
-  .input{
-    font-size: 1em;
-    font-family:cursive;
-    color: blue;
   }
