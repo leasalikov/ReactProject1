@@ -7,7 +7,7 @@ function GameBoard(props) {
     else
         activeClass ="notActive";
     return (
-        <div class={`${activeClass}`} key={keyChange}>
+        <div className={`${activeClass}`} key={keyChange}>
             <p>Active: {player.active}</p>      
             <p>Player: {player.name}</p>
             <p>Number: {player.number}</p>

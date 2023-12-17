@@ -1,7 +1,6 @@
-import { useState } from "react";
 
 function Steps(props){
-    const { player, setPlayers, players } = props;
+    const { player, players } = props;
     let steps = player.steps;
     const playersArray=players;
     if(player.active=="true")

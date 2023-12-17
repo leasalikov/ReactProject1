@@ -1,7 +1,7 @@
 import { useState } from "react"
 import GameBoard from "./GameBoard"
 import LogIn from "./LogIn"
-import RandNumber from "./RandNunber"
+import Number from "./Number"
 import Steps from "./Steps"
 import ActivePlayer from "./ActivePlayer"
 import Win from "./Win"
@@ -23,7 +23,7 @@ const Controle = () => {
                 <TopPlayers keyChange={keyChange}/>
                 {players.map((player, i) => (
                     <div key={i} className='gameBoard'>
-                        <RandNumber player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />
+                        <Number player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />
                         <Steps player={player} setPlayers={setPlayers} players={players} activePlayer={activePlayer} />
                         <ActivePlayer activePlayer={activePlayer} players={players} player={player}/>
                         <Scores player={player} players={players} />

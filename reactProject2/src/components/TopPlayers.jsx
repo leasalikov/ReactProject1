@@ -35,7 +35,7 @@ function TopPlayers(props) {
     }
 
     return (
-        <div key={props.keyChange} class="topPlayers">
+        <div key={props.keyChange} className="topPlayers">
             <p>Top players:</p>
             {winers.map((winer, i) => (
                 <p key={i}> name: {winer.name}, average: {winer.average}</p>

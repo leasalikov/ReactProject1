@@ -1,5 +1,5 @@
 
-function RandNumber(props) {
+function Number(props) {
     const { player, setPlayers, players, setKeyChange, setActivePlayer } = props;
     const playersArray = players;
     if(playersArray[playersArray.indexOf(player)].number==''){
@@ -40,4 +40,4 @@ function RandNumber(props) {
         </>
     )
 }
-export default RandNumber;
+export default Number;

@@ -1,7 +1,7 @@
 import './GameBoard.css'
 function Win(props){
 
-    const {players, player, setPlayers, setKeyChange, setActivePlayer}= props;
+    const {players, player, setKeyChange, setActivePlayer}= props;
 
     const NewGame = () => {
         const playersArray=players;

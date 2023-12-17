@@ -36,15 +36,13 @@ function LogIn(props) {
             <h2>Enter to register players:</h2>
             <button onClick={signUser} className="logIn">👉</button>
             <br />
-            <p className='gameBoard'>
+            <p className="gameBoard">
             {players.map((player, i) =>
                 <div key={i}>{player.name}</div>
             )}
             </p>
-
             <button className="logIn" onClick={() => {players[0]==null? alert("There are no players!"):startGame(true) }}>start game</button>
         </>
-        //😊
     )
 }
 export default LogIn;
