@@ -10,9 +10,7 @@ import TopPlayers from "./TopPlayers"
 import './GameBoard.css'
 
 const Controle = () => {
-    // const style={
-    //     div:{display: 'flex'}
-    // }
+
     const [gameActive, setGameActive] = useState(false);
     const [players, setPlayers] = useState([]);
     const [keyChange, setKeyChange] = useState(0);
@@ -21,20 +19,18 @@ const Controle = () => {
     if (gameActive) {
         return (
             <div>
-                <TopPlayers keyChange={keyChange}/>
+                <TopPlayers keyChange={keyChange} />
                 {players.map((player, i) => (
                     <div key={i} className='gameBoard'>
-                        <Number player={player} setPlayers={setPlayers} players={players} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />
-                        <Steps player={player} setPlayers={setPlayers} players={players} activePlayer={activePlayer} />
-                        <ActivePlayer activePlayer={activePlayer} players={players} player={player}/>
+                        <Number player={player} players={players} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} />
+                        <ActivePlayer activePlayer={activePlayer} players={players} player={player} />
+                        <GameBoard player={player} setPlayers={setPlayers} keyChange={keyChange} setActivePlayer={setActivePlayer} />
+                        <Steps player={player} players={players} keyChange={keyChange} setKeyChange={setKeyChange} />
                         <Scores player={player} players={players} />
-                        <GameBoard player={player} setPlayers={setPlayers} keyChange={keyChange} setActivePlayer={setActivePlayer} />  
-                        <Win player={player} players={players} setPlayers={setPlayers} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} setGameActive={setGameActive}/>                     
+                        <Win player={player} players={players} setPlayers={setPlayers} setKeyChange={setKeyChange} setActivePlayer={setActivePlayer} setGameActive={setGameActive} />
                         <br />
                     </div>
                 ))}
-                {/* {players.map((player, i) => <GameBoard key={i} player={player} setPlayers={setPlayers} />)}
-                {players.map((player, i) => <RandNumber key={i} player={player} setPlayers={setPlayers} players={players} />)} */}
             </div>
         );
     }

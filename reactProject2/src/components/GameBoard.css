@@ -1,77 +1,84 @@
-
-.gameBoard{
-    /* width: 300px;  */
-    /* height: 400px;  */
-    margin: 5px; 
-    border-radius: 15px;
-    background-color:azure;
-    border: 6px solid blue; 
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family:cursive;
-    font-size: 20px;
-    display: inline-block;
+.gameBoard {
+  /* width: 300px;  */
+  /* height: 400px;  */
+  margin: 5px;
+  border-radius: 15px;
+  background-color: azure;
+  border: 6px solid blue;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  font-size: 20px;
+  display: inline-block;
 }
+
 body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
-    display: flex;
-    color: black;
-    background-color: paleturquoise;
-    /* flex-direction: column;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  color: black;
+  background-color: paleturquoise;
+  /* flex-direction: column;
     justify-content: center;
     align-items: center; */
-  }
-  /* h1 {
+}
+
+/* h1 {
     font-size: 3.2em;
     line-height: 1.1;
   } */
-  button {
-    margin:5px;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: paleturquoise;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: whitesmoke;
-    background-color: blue;
-    color: white;
-  }
-  .active{
-    font-weight: bold;
-    font-style: italic;
-    color: blue;
-    font-size:21px ;
-  }
-  .topPlayers{
-    margin-bottom: 30px; 
-    /* margin-top: 0px; */
-    border-radius: 15px;
-    background-color:aleturquoise;
-    border: 6px solid blue; 
-    font-weight: bold;
-    /* display: flex;
+button {
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: paleturquoise;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: whitesmoke;
+  background-color: blue;
+  color: white;
+}
+
+.true, .Win{
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+  font-size: 21px;
+}
+
+.topPlayers {
+  margin-bottom: 30px;
+  /* margin-top: 0px; */
+  border-radius: 15px;
+  background-color: aleturquoise;
+  border: 6px solid blue;
+  font-weight: bold;
+  /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; */
-    font-size: 1em;
-    font-family:cursive;
-    color: blue;
-    /* width: 300px; */
-    }
-  .youWon, h1, h2{
-    font-size: 2em;
-    font-family:cursive;
-    color: darkblue;
-  }
+  font-size: 1em;
+  font-family: cursive;
+  color: blue;
+  /* width: 300px; */
+}
+
+.youWon,
+h1,
+h2 {
+  font-size: 2em;
+  font-family: cursive;
+  color: darkblue;
+}

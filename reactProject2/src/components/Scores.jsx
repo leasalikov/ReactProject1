@@ -2,7 +2,7 @@
 function Scores(props) {
     const { player, players } = props;
     const playersArray = players;
-    let playerIndex=playersArray.indexOf(player);
+    let playerIndex = playersArray.indexOf(player);
     if (player.active == "Win") {
         let localStoragePlayers = JSON.parse(localStorage.getItem('players'));
         if (playersArray[playerIndex].lastScore !== player.steps) {
@@ -17,7 +17,11 @@ function Scores(props) {
         }
     }
     return (
-        <></>
+        <>
+            {/* add scores to Scores component */}
+            {/* <p className={`${player.active}`}>Score: {player.scores.map((playerScore, i) => (<span key={i}>{playerScore}, </span>))}</p> */}
+            {/*  */}
+        </>
     );
 }
 export default Scores;

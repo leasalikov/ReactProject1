@@ -3,7 +3,6 @@ import './Login.css'
 function LogIn(props) {
 
     const { startGame, players, setPlayers } = props;
-    // const [players, setPlayers] = useState([{ name: "" }]);
     const signUser = () => {
         let gamer = prompt("enter name:");
         if (players.every(obj => obj.name !== gamer)) {
@@ -23,7 +22,6 @@ function LogIn(props) {
                         setPlayers(prevPlayers => [...prevPlayers, { name: gamer, number:'',steps:0, active:"false", scores:localStoragePlayer.scores}]);
                     }
                 })
-                // scores = localStoragePlayers[localStoragePlayers.indexOf(gamer)].scores;
             }
             localStorage.setItem('players', JSON.stringify(localStoragePlayers));
         } else {
