@@ -4,6 +4,7 @@ function TopPlayers(props) {
     let winers = [];
     let minAverage;
     let localStoragePlayers = JSON.parse(localStorage.getItem('players'));
+
     for (let index = 0; index < 3; index++) {
         let firstIndex = 0;
         while (firstIndex < localStoragePlayers.length && localStoragePlayers[firstIndex].scores.length == 0) {
@@ -43,5 +44,6 @@ function TopPlayers(props) {
             ))}
         </div>
     )
+
 }
 export default TopPlayers;

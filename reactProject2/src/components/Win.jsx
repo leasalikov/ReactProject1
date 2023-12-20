@@ -2,13 +2,17 @@ import './GameBoard.css'
 function Win(props) {
 
     const { players, player, setKeyChange, setActivePlayer, setGameActive } = props;
+
+
     const playersArray = players;
     let playerIndex = playersArray.indexOf(player);
+
     const NewGame = () => {
         playersArray[playerIndex] = { name: player.name, number: '', steps: 0, active: "false", scores: player.scores };
         setActivePlayer(prevActivePlayer => ((prevActivePlayer + 1 == players.length) ? 0 : ++prevActivePlayer));
         setKeyChange(prevKeyChange => (++prevKeyChange));
     }
+
     const Quit = () => {
         if (playersArray[playerIndex] == playersArray[playersArray.length - 1])
             setActivePlayer(0);
@@ -19,7 +23,6 @@ function Win(props) {
     }
 
     if (player.number == 100) {
-
         return (
             <>
                 <p className="youWon">You Won!!!</p>
@@ -28,8 +31,10 @@ function Win(props) {
             </>
         )
     }
+
     return (
         <></>
-    )
+
+        )
 }
 export default Win;

@@ -1,13 +1,19 @@
 
 function Number(props) {
+
     const { player, players, setKeyChange, setActivePlayer } = props;
+
+
     const playersArray = players;
     let playerIndex = playersArray.indexOf(player);
+
     if (playersArray[playerIndex].number == '') {
         const rand = Math.floor(Math.random() * 99);
         playersArray[playerIndex].number = rand;
     }
+
     let num = player.number;
+
     const updateNumber = (mathematicalOperation) => {
         if (player.active == "true") {
             switch (mathematicalOperation) {
@@ -25,11 +31,13 @@ function Number(props) {
                     break;
             }
             playersArray[playerIndex].number = num;
+            playersArray[playerIndex].steps++;
             if (player.number != 100)
                 setActivePlayer(prevActivePlayer => ((prevActivePlayer + 1 == players.length) ? 0 : ++prevActivePlayer));
-            setKeyChange(1);
-        } 
+            setKeyChange(prevKeyChange => (++prevKeyChange));
+        }
     }
+
     return (
         <>
             <button onClick={() => { updateNumber('+') }}>+1</button>
@@ -38,5 +46,6 @@ function Number(props) {
             <button onClick={() => { updateNumber('/') }}>/2</button>
         </>
     )
+
 }
 export default Number;

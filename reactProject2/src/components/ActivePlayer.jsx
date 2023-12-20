@@ -1,6 +1,9 @@
 
 function ActivePlayer(props) {
+
     const { activePlayer, players, player } = props;
+
+
     const playersArray = players;
     let playerIndex = playersArray.indexOf(player);
     if (playerIndex == activePlayer) {
@@ -12,15 +15,13 @@ function ActivePlayer(props) {
             playersArray[playerIndex].style = 'activePlayer';
         }
     }
-    else
+    else {
         playersArray[playerIndex].active = "false";
+    }
 
     return (
-        <>
-            {/* add scores to ActivePlayer component */}
-            {/* <p className={`${player.active}`}>Active: {player.active}</p> */}
-            {/*  */}
-        </>
+        <p className={`${player.active}`}>Active: {player.active}</p>
     )
+
 }
 export default ActivePlayer;
