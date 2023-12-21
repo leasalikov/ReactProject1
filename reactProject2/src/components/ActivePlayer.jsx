@@ -12,12 +12,10 @@ function ActivePlayer(props) {
         }
         else {
             playersArray[playerIndex].active = "true";
-            playersArray[playerIndex].style = 'activePlayer';
         }
     }
-    else {
+    else
         playersArray[playerIndex].active = "false";
-    }
 
     return (
         <p className={`${player.active}`}>Active: {player.active}</p>
