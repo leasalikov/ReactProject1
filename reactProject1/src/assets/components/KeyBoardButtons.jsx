@@ -59,8 +59,6 @@ function KeyBoardButtons() {
 
     const addChar = (newLetter) => {
         setUndo(prevUndo => [...prevUndo, () => { setText(text) }]);
-        // setText(prevText => [...prevText, { letter: newLetter, color: color, size: size }]);
-        // setText(prevText => [...prevText, { letter: newLetter, color: color, size: { fontSize: `${size}px` } }]);
         setText(prevText => [...prevText, { letter: newLetter, color: color, size: size, font: font }]);
     };
 

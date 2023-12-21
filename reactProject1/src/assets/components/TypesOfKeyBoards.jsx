@@ -16,9 +16,7 @@ function TypesOfKeyBoards(prop) {
     const changeToSpecialKeyBoard = (keyBoardKind) => {
         if (prop.keyBoard != keyBoardKind) {
             prop.setUndo(prevUndo => [...prevUndo, () => { prop.setKeyBoard(prop.keyBoard) }]);
-            if (keyBoardKind != 'upper')
-                (prop.keyBoard == 'UpperCaseAlphabet') ? prop.setKeyBoard('EnglishAlphabet') : prop.setKeyBoard('UpperCaseAlphabet');
-            prop.setKeyBoard(`${keyBoardKind}`);
+            prop.setKeyBoard(keyBoardKind);
         }
     }
 
@@ -27,7 +25,7 @@ function TypesOfKeyBoards(prop) {
             <button onClick={() => changeLanguage()}>{prop.ChangeKeyBoard}</button>
             <button onClick={() => changeToSpecialKeyBoard('EmogyKeyBoard')}>😊</button>
             <button onClick={() => changeToSpecialKeyBoard('simbolsKeyBoard')}>simbols</button>
-            <button onClick={() => changeToSpecialKeyBoard('upper')}>UPPER</button>
+            <button onClick={() => changeToSpecialKeyBoard('UpperCaseAlphabet')}>UPPER</button>
         </div>
     );
 
