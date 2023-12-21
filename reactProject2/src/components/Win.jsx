@@ -22,19 +22,13 @@ function Win(props) {
         setKeyChange(prevKeyChange => (++prevKeyChange));
     }
 
-    if (player.number == 100) {
         return (
             <>
-                <p className="youWon">You Won!!!</p>
+                <span className="youWon">You Won!!!</span>
+                <br/>
                 <button onClick={NewGame}>New Game</button>
                 <button onClick={Quit}>Quit</button>
             </>
-        )
-    }
-
-    return (
-        <></>
-
         )
 }
 export default Win;

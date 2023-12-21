@@ -1,15 +1,14 @@
 
 function Steps(props) {
 
-  const { player, players, keyChange, setKeyChange } = props;
+  const { player, players } = props;
 
 
   let steps = player.steps;
   const playersArray = players;
   let playerIndex = playersArray.indexOf(player);
 
-  if (player.active == "true" && keyChange == 1) {
-    setKeyChange(prevKeyChange => (++prevKeyChange));
+  if (player.active == "true") {
     playersArray[playerIndex].steps = steps + 1;
   }
 

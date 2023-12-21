@@ -11,10 +11,11 @@ import './GameBoard.css'
 
 const Controle = () => {
 
+    
     const [gameActive, setGameActive] = useState(false);
     const [players, setPlayers] = useState([]);
-    const [keyChange, setKeyChange] = useState(0);
     const [activePlayer, setActivePlayer] = useState(0);
+    const [keyChange, setKeyChange] = useState(0);
 
 
     function playOrWin(player) {
@@ -31,8 +32,8 @@ const Controle = () => {
                     <div key={i} className='gameBoard'>
                         {playOrWin(player)}
                         <ActivePlayer activePlayer={activePlayer} players={players} player={player} />
-                        <GameBoard player={player} setPlayers={setPlayers} keyChange={keyChange} setActivePlayer={setActivePlayer} />
-                        {/* <Steps player={player} players={players} keyChange={keyChange} setKeyChange={setKeyChange} /> */}
+                        <GameBoard player={player} keyChange={keyChange} />
+                        {/* <Steps player={player} players={players} /> */}
                         <Scores player={player} players={players} />
                         <br />
                     </div>

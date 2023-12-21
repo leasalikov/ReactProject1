@@ -7,8 +7,8 @@ function LogIn(props) {
 
     const signUser = () => {
         let gamer = prompt("enter name:");
+        let localStoragePlayers = JSON.parse(localStorage.getItem('players'));
         if (players.every(obj => obj.name !== gamer)) {
-            let localStoragePlayers = JSON.parse(localStorage.getItem('players'));
             if (localStoragePlayers == null) {
                 localStoragePlayers = [];
                 localStoragePlayers.push({ name: gamer, scores: [] });
